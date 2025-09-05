@@ -37,3 +37,9 @@ This project uses QR Server API to generate QR codes:
 ```
 https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=[YOUR_TEXT]
 ```
+
+## Author
+
+Created by **Raihan Ramadhan**
+
+Portfolio: [raihanr.tech](https://raihanr.tech)

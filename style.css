@@ -11,10 +11,11 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 100vh;
     background: linear-gradient(135deg, #1B264F 0%, #274690 50%, #576CA8 100%);
     overflow: hidden;
     padding: 20px;
+    margin: 0;
 }
 
 .wrapper{
@@ -27,18 +28,6 @@ body{
     transition: height 0.2s ease;
     box-shadow: 0 10px 30px rgba(27, 38, 79, 0.3);
     border: 2px solid rgba(87, 108, 168, 0.2);
-    animation: slideIn 0.6s ease-out;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .wrapper.active{
@@ -119,15 +108,63 @@ body{
     border: 2px solid #576CA8;
     background: linear-gradient(135deg, #F5F3F5 0%, rgba(87, 108, 168, 0.1) 100%);
     transition: all 0.3s ease;
+    position: relative;
+}
+
+.wrapper .qr-code::before{
+    content: "QR Code will appear here";
+    position: absolute;
+    color: #576CA8;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.wrapper.active .qr-code::before{
+    display: none;
 }
 
 .wrapper .qr-code img{
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(27, 38, 79, 0.2);
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .wrapper.active .qr-code{
     opacity: 1;
     pointer-events: auto;
     transition: opacity 0.5s 0.05s ease;
+}
+
+.footer{
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(245, 243, 245, 0.9);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(87, 108, 168, 0.2);
+}
+
+.footer p{
+    color: #302B27;
+    font-size: 11px;
+    margin-bottom: 2px;
+    opacity: 0.8;
+}
+
+.footer a{
+    color: #274690;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover{
+    color: #1B264F;
+    text-decoration: underline;
 }
